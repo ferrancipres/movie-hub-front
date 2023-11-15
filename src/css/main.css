@@ -15,7 +15,7 @@ h5,
     text-decoration: none;
     appearance: none;
     background: none;
-    font-family: 'League Spartan';
+    font-family: 'Comic Sans';
     scroll-behavior: smooth;
 }
 
@@ -29,13 +29,10 @@ body {
 
 /* ROOT */
 :root {
-    --primary: #FBE4D8;
-    --primary-dark: #DFB6B2;
-    --secondary: #190019;
-    --clr-link: #854F6C;
-    --clr-yellow: #AA9900;
-    --clr-purple: #522B5B;
-    --clr-purple-dark: #2B124C;
+    --primary: #060505;
+    --secondary: #454245;
+    --clr-link: #e70a0a;
+    --clr-red: #aa0000;
 
     --fs-xxs: 1rem;
     --fs-xs: 1.25rem;

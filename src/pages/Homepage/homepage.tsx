@@ -2,10 +2,11 @@ export const Homepage = () => {
 
     return (
         <>
-            <main>
-                <section>
-
+            <main className="">
+                <section className="">
+                    <div className=" "> All movies</div>
                 </section>
+                //componente
             </main>
 
         </>
