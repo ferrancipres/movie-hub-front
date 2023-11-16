@@ -1,14 +1,14 @@
+import { MovieContent } from "../../components"
+
 export const Homepage = () => {
 
     return (
         <>
             <main className="">
-                <section className="">
-                    <div className=" "> All movies</div>
+                <section>
+                    <MovieContent />
                 </section>
-                //componente
             </main>
-
         </>
     )
 }

@@ -1,0 +1,19 @@
+.list-movies {
+    font-size: var(--fs-xs);
+    color: var(--secondary);
+    list-style: none;
+    width: fit-content;
+    text-align: center;
+    text-decoration: none;
+}
+
+.list-movies:hover {
+    opacity: 0.8;
+}
+
+.movie-image {
+    border-radius: 10px;
+    background-color: var(--secondary);
+    width: 250px;
+    height: 345px;
+}

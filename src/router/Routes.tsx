@@ -1,21 +1,15 @@
 import { Route, Routes } from 'react-router-dom'
 import { FC } from 'react'
-import { Details, Homepage, Profile } from '../pages'
-import PrivateRoutes from './PrivateRoutes'
+import { Homepage, Profile } from '../pages'
+import { MovieDetails } from '../components'
 
 // Me da error FC
 const RouterComponent: FC = () => {
     return (
         <Routes>
             <Route path='/' element={<Homepage />} />
-            <Route path='/*' element={
-                <PrivateRoutes>
-                    <Routes>
-                        <Route path='/details' element={<Details />} />
-                        <Route path='/profile' element={<Profile />} />
-                    </Routes>
-                </PrivateRoutes>
-            } />
+            <Route path='/movie/:movieId' element={<MovieDetails />} />
+            <Route path='/user' element={<Profile />} />
         </Routes>
     )
 }

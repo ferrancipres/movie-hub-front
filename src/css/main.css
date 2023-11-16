@@ -29,10 +29,8 @@ body {
 
 /* ROOT */
 :root {
-    --primary: #060505;
-    --secondary: #454245;
-    --clr-link: #e70a0a;
-    --clr-red: #aa0000;
+    --primary: #f4eeee;
+    --secondary: #000000;
 
     --fs-xxs: 1rem;
     --fs-xs: 1.25rem;
@@ -70,7 +68,6 @@ body {
     background: var(--primary-dark);
 }
 
-
 /* TRANSITION */
 .hidden {
     opacity: 0;
@@ -81,4 +78,11 @@ body {
 .shown {
     opacity: 1;
     transition: opacity ease-in-out 0.4s;
+}
+
+/* LINK */
+a {
+    text-decoration: none;
+    color: var(--secondary);
+    font-size: var(--fs-xxs);
 }

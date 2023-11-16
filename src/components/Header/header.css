@@ -1,5 +1,31 @@
-header {}
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1em;
+    flex-wrap: wrap;
+}
 
-header-container {}
+.header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-logo {}
+.logo_img {
+    cursor: pointer;
+    width: 6em;
+}
+
+.logo_text {
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-s);
+    color: var(--secundary);
+    cursor: pointer;
+}
+
+.header-icons {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
