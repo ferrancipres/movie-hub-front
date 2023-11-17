@@ -1,7 +1,7 @@
 export const createUser = async (userObject: {}) => {
     // const { VITE_API_URL: url } = import.meta.env;
     try {
-        const response = await fetch("http://localhost:4000/user", {
+        const response = await fetch("http://localhost:4000/user/", {
             method: "POST",
             headers: {
                 "Contet-type": "application/json; charset=UTF-8"
@@ -34,3 +34,20 @@ export const getUserByEmail = async (getToken: any, userEmail: string) => {
         return [null, null]
     }
 };
+
+export const getAllUsers = async () => {
+
+    // const token = await getToken()
+
+    const response = await fetch("http://localhost:4000/user", {
+        method: "GET",
+        headers: {
+
+            "Content-Type": "application/json"
+        }
+    })
+
+    const allUsers = await response.json()
+    return allUsers
+
+}
