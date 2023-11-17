@@ -2,7 +2,7 @@
 export const Profile = () => {
     return (
         <>
-            <h1>I'm profile</h1>
+            <h4>I'm profile</h4>
         </>
     )
 }

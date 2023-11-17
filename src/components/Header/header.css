@@ -27,5 +27,11 @@
 .header-icons {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     gap: 20px;
+}
+
+.button-style {
+    text-decoration: none;
+    background: transparent;
 }

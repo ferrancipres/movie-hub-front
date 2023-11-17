@@ -6,9 +6,9 @@ export const Footer = () => {
     return (
         <footer className="footer-container">
             <section className="social-icons">
-                <a className="icon-social" href="#red-social-1"><FaFacebook /></a>
-                <a className="icon-social" href="#red-social-2"><FaTwitter /></a>
-                <a className="icon-social" href="#red-social-3"><FaInstagram /></a>
+                <a className="icon-social" href="#red-social-1" target="_blank"><FaFacebook /></a>
+                <a className="icon-social" href="#red-social-2" target="_blank"><FaTwitter /></a>
+                <a className="icon-social" href="#red-social-3" target="_blank"><FaInstagram /></a>
             </section>
             <section className="info-wrapper">
                 <p>Conditions of use</p>
