@@ -1,28 +1,26 @@
 
 // contenido de películas del usuario
 import { FC, useEffect, useState } from "react"
-import movie from '../../db/movie.json'
+// import movie from '../../db/movie.json'
 import { MovieCart } from "../Movie Cart/MovieCart"
 import './movieContent.css'
 import { Spinner } from "../Spinner/Spinner"
-import { useLocation } from "react-router-dom"
+// import { useLocation } from "react-router-dom"
 
-function useQuery() {
-    return new URLSearchParams(useLocation().search)
-}
+// function useQuery() {
+//     return new URLSearchParams(useLocation().search)
+// }
 
 export const MovieContent: FC = () => {
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    const query = useQuery();
-    const search = query.get("search");
+    // const query = useQuery();
+    // const search = query.get("search");
 
     useEffect(() => {
         setIsLoading(true);
-        const searchUrl = search
-            ? `https://api.themoviedb.org/3/search/movie?query=${search}`
-            : "https://api.themoviedb.org/3/discover/movie";
+        const searchUrl = "https://api.themoviedb.org/3/discover/movie";
 
         fetch(searchUrl, {
             method: 'GET',
@@ -36,7 +34,7 @@ export const MovieContent: FC = () => {
                 setMovies(data.results);
                 setIsLoading(false);
             });
-    }, [search]);
+    }, []);
 
     if (isLoading) {
         <Spinner />
@@ -48,7 +46,7 @@ export const MovieContent: FC = () => {
 
     return (
         <ul className="movies-grid">
-            {movie.map((movie: any) => (
+            {movies.map((movie: any) => (
                 <MovieCart key={movie.id} movie={movie} />
             ))}
         </ul>

@@ -24,10 +24,11 @@ type MovieContentProps = {
 }
 
 export const MovieCart: FC<movieProps> = ({ movie }) => {
+    const imageUrl = "https://image.tmdb.org/t/p/w300" + movie.poster_path;
     return (
         <li className="list-movies">
             <Link to={'/movie/' + movie.id}>
-                <img className="movie-image" src={movie.poster_path} alt={movie.title} />
+                <img className="movie-image" src={imageUrl} alt={movie.title} />
                 <div>{movie.title}</div>
             </Link>
         </li>

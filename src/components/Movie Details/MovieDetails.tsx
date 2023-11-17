@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './movieDetails.css';
-import { Loading, Spinner } from '../Spinner/Spinner';
+import { Spinner } from '../Spinner/Spinner';
 
 interface Movie {
     poster_path: string;
@@ -10,7 +10,6 @@ interface Movie {
     genres: { name: string }[];
     vote_average: number;
     original_language: string;
-    // Agrega otras propiedades según sea necesario
 }
 
 export const MovieDetails = () => {

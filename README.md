@@ -19,3 +19,11 @@ Boton para deslogearme..en el header
 
 
 
+
+En la carpeta API 
+- Contexto ...
+- cretaNewUser
+- getAllUsers
+- HOME matchear!
+- Coger el auth-0!!!
+- Crear contexto...con el currentUser..
