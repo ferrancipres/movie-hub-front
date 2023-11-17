@@ -31,7 +31,7 @@ export const Profile = () => {
                 console.error('Error fetching user data:', error)
             }
         })();
-    }, [user])
+    }, [user]);
 
     return (
         <>

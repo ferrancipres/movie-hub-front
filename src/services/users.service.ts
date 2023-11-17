@@ -1,7 +1,7 @@
 export const createUser = async (userObject: {}) => {
-    const { VITE_API_URL: url } = import.meta.env;
+    // const { VITE_API_URL: url } = import.meta.env;
     try {
-        const response = await fetch(`${url}/user`, {
+        const response = await fetch("http://localhost:4000/user", {
             method: "POST",
             headers: {
                 "Contet-type": "application/json; charset=UTF-8"
@@ -17,16 +17,16 @@ export const createUser = async (userObject: {}) => {
 };
 
 export const getUserByEmail = async (getToken: any, userEmail: string) => {
-    const { VITE_API_URL: url } = import.meta.env;
     try {
         const token = await getToken();
-        const response = await fetch(`${url}/user/email/${userEmail}`, {
+        const response = await fetch(`http://localhost:4000/user/email/${userEmail}`, {
             method: "GET",
             headers: {
-                "Authorization": `Bearer ${token}`,
+                authorization: `Bearer ${token}`,
                 "Content-type": "application/json; charset=UTF-8"
             }
         });
+
         const data = await response.json();
         return [response, data];
     } catch (error) {
