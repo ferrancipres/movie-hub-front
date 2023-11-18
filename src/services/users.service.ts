@@ -1,3 +1,48 @@
+
+export const getAllUsers = async () => {
+    //MODIFICIACION SABADO
+    // const token = await getToken()
+    const { VITE_API_URL: url } = import.meta.env;
+    try {
+        const response = await fetch(`${url}/user`, {
+            method: "GET",
+            headers: {
+                // "Authorization": `Bearer ${token}`,
+                // No hace falta autorización porque no tenemos el middleware
+                "Content-Type": "application/json"
+            }
+        });
+
+        const allUsers = await response.json()
+        return allUsers
+    } catch (error) {
+        console.error('Erro fetching get all users:', error)
+        return null
+    }
+};
+
+export const getUserByEmail = async (userEmail: string) => {
+    const { VITE_API_URL: url } = import.meta.env;
+    try {
+        // const token = await getToken();
+        //MODIFICIACION SABADO
+        const response = await fetch(`${url}/user/${userEmail}`, {
+            method: "GET",
+            headers: {
+                //MODIFICIACION SABADO
+                // "Authorization": `Bearer ${token}`,
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        });
+
+        const data = await response.json();
+        return [response, data];
+    } catch (error) {
+        console.error('Error fetching user by email:', error);
+        return [null, null]
+    }
+};
+
 export const createUser = async (userObject: {}) => {
     const { VITE_API_URL: url } = import.meta.env;
     try {
@@ -16,38 +61,29 @@ export const createUser = async (userObject: {}) => {
     }
 };
 
-export const getUserByEmail = async (getToken: any, userEmail: string) => {
+export const createNewMovie = async (userId: number, data: any) => {
+
+
+    // const accessToken = await getToken();
+    const { VITE_API_URL: url } = import.meta.env
     try {
-        const token = await getToken();
-        const response = await fetch(`http://localhost:4000/user/email/${userEmail}`, {
-            method: "GET",
+
+        const response = await fetch(`${url}/movie/${userId}`, {
+            method: "POST",
             headers: {
-                authorization: `Bearer ${token}`,
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        });
-
-        const data = await response.json();
-        return [response, data];
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: data.name,
+                score: data.score,
+                genres: data.genres,
+                poster_image: data.poster_image
+            })
+        })
+        const dataFetched = await response.json();
+        return dataFetched;
     } catch (error) {
-        console.error('Error fetching user by email:', error);
-        return [null, null]
+        console.error('Error fetching creating new movie:', error);
+        return null
     }
-};
-
-export const getAllUsers = async () => {
-
-    // const token = await getToken()
-
-    const response = await fetch("http://localhost:4000/user", {
-        method: "GET",
-        headers: {
-
-            "Content-Type": "application/json"
-        }
-    })
-
-    const allUsers = await response.json()
-    return allUsers
-
 }

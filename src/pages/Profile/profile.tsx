@@ -1,11 +1,22 @@
 import { useAuth0 } from "@auth0/auth0-react"
 import { useUserContext } from "../../utils/useUserContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { createUser, getAllUsers } from "../../services/users.service";
+import { AddMovieModal } from "../../components/Add Modal Movie/addModalMovie";
+import './profile.css'
 
 export const Profile = () => {
     const { user, isAuthenticated, isLoading } = useAuth0();
     const { setCurrentLoggedUser } = useUserContext();
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
 
     const findLoggedUser = async () => {
         if (user) {
@@ -37,6 +48,10 @@ export const Profile = () => {
     return (
         <>
             <h4>I'm profile motherfucker!</h4>
+            <div className="btn-container">
+                <button onClick={handleOpenModal} className="button-style-user">Add Movie</button>
+                <AddMovieModal isOpen={isModalOpen} onClose={handleCloseModal} />
+            </div>
         </>
     )
 }

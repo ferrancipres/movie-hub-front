@@ -1,0 +1,16 @@
+.btn-container {
+    margin-top: 3rem;
+}
+
+.button-style-user {
+    cursor: pointer;
+    appearance: none;
+    background: black;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border-radius: 20px;
+    margin: 5px auto;
+    width: 10rem;
+}

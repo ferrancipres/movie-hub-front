@@ -1,0 +1,116 @@
+.modal-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+
+.empty-movie-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 8px dashed black;
+    height: 420px;
+    width: 270px;
+    background-color: white;
+    gap: 4rem;
+    font-size: 1.5rem;
+    margin-right: 8rem;
+}
+
+.form-text {
+    font-size: 1.8rem;
+    text-align: left;
+}
+
+input {
+    width: 400px;
+    height: 50px;
+    border: 4px solid black;
+    margin: 0.8rem 0;
+}
+
+input[type="submit"] {
+    height: 55px;
+    margin-top: 4rem;
+
+}
+
+.tittle {
+    font-size: 6rem;
+    padding-top: 9rem;
+}
+
+.subtittle {
+    font-size: 3rem;
+}
+
+.form {
+    padding-top: 3rem;
+    max-width: 400px;
+    margin: 0 auto;
+
+}
+
+input {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid white;
+    padding: 1em 2em;
+    margin-bottom: 10px;
+    font-size: 1em;
+    border-radius: 15px;
+    background-color: white;
+
+}
+
+label {
+    line-height: 2;
+    text-align: left;
+    display: block;
+    margin-bottom: 13px;
+    margin-top: 20px;
+    color: white;
+    font-size: 14px;
+    font-weight: 200;
+}
+
+button,
+input[type="submit"] {
+    background: black;
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1.7rem;
+    border-radius: 20px;
+    margin: 0 auto;
+    width: 14rem;
+    margin-top: 2rem;
+    cursor: pointer;
+
+}
+
+button {
+    display: block;
+    appearance: none;
+    border-radius: 4px;
+    width: 100%;
+}
+
+
+input:disabled {
+    opacity: 0.4;
+}
+
+.form__name {
+    text-align: left;
+    font-size: 1.6rem;
+    margin: 1em 0 1em 0;
+
+}
+
+.signin {
+    padding: 2rem;
+    font-size: 1.5rem;
+}

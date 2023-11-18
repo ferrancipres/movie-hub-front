@@ -1,0 +1,19 @@
+.modal {
+    margin: 0 auto;
+    margin-top: 12rem;
+    width: 1000px;
+    height: 600px;
+    background-color: white;
+    border: 8px solid black;
+    flex-direction: column;
+
+}
+
+.modal-close-btn {
+    margin: 1rem;
+    font-size: 1rem;
+    align-items: end;
+    width: 40px;
+    height: 40px;
+
+}
