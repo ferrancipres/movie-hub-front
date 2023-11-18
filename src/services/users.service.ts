@@ -1,10 +1,10 @@
 export const createUser = async (userObject: {}) => {
-    // const { VITE_API_URL: url } = import.meta.env;
+    const { VITE_API_URL: url } = import.meta.env;
     try {
-        const response = await fetch("http://localhost:4000/user/", {
+        const response = await fetch(`${url}/user/`, {
             method: "POST",
             headers: {
-                "Contet-type": "application/json; charset=UTF-8"
+                "Content-type": "application/json; charset=UTF-8"
             },
             body: JSON.stringify(userObject)
         });
