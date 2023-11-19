@@ -2,18 +2,17 @@
 import { Link, redirect, useParams } from 'react-router-dom';
 import { useUserContext } from '../../utils/useUserContext';
 import { deleteMovie } from '../../services/users.service';
+import { AddMovieModal } from '../Add Modal Movie/AddModalMovie';
+import { useState } from 'react';
 
 export const ProfileMovieDetails = () => {
     const { movieId } = useParams();
     const { currentUser } = useUserContext();
-    console.log(movieId)
-    // console.log(currentUser)
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
     const movieDetail = currentUser ? currentUser?.movies.find((movie) => {
         return movie.name === movieId
     }) : undefined;
-
-    console.log(movieDetail)
 
     const handleDeleteMovie = async () => {
         if (!movieDetail) {
@@ -23,6 +22,14 @@ export const ProfileMovieDetails = () => {
         await deleteMovie(movieDetail.id); // Esperar a que la eliminación se complete
         redirect("/user");
         location.reload();
+    };
+
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
     };
 
     return (
@@ -49,7 +56,14 @@ export const ProfileMovieDetails = () => {
                     <strong>Score: </strong>
                     {movieDetail?.score}
                 </p><br />
-                <button className="button-style-user">Edit movie</button>
+
+                {/* <button className="button-style-user">Edit movie</button> */}
+
+                <div className="btn-container">
+                    <button onClick={handleOpenModal} className="button-style-user">Edit Movie</button>
+                    <AddMovieModal isOpen={isModalOpen} onClose={handleCloseModal} />
+                </div>
+
                 <Link to={'/user'}>
                     <button onClick={handleDeleteMovie} className="button-style-user">Delete movie</button>
                 </Link>

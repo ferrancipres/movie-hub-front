@@ -24,7 +24,7 @@ export const PorfileMovieContent: FC<movieUserProps> = ({ movieUser }) => {
                 <p>Title: {movieUser.name}</p>
                 <p>Score:{movieUser.score}</p>
                 <p>{movieUser.genres.map((genre: any) => (
-                    <li>
+                    <li key={genre.genre.id}>
                         <p>Genre: {genre.genre.name}</p>
                     </li>
                 ))}</p>

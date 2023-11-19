@@ -27,18 +27,17 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ isOpen, onClose })
     };
     const [isModalOpen, setIsModalOpen] = useState(isOpen);
 
-
     const { register, handleSubmit, reset, formState } = useForm<FormValues>();
     // const { errors, isSubmitSuccessful } = formState;
 
     const { currentUser } = useUserContext()
 
     const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
-
         const userId = currentUser?.id
-
         if (userId) await createNewMovie(userId, data)
+
     }
+
     useEffect(() => {
         if (formState.isSubmitSuccessful) {
             reset({ name: "", score: "", poster_image: "", genres: [] })

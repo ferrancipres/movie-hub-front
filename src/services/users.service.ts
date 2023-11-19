@@ -97,7 +97,7 @@ export const deleteMovie = async (movieId: number) => {
     return dataFetched;
 }
 
-export const updateeMovie = async (movieId: number, data: any) => {
+export const updateMovie = async (movieId: number, data: any) => {
 
     // const accessToken = await getToken();
     const { VITE_API_URL: url } = import.meta.env
