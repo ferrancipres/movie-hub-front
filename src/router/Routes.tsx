@@ -3,6 +3,7 @@ import { FC } from 'react'
 import { Homepage, Profile } from '../pages'
 import { MovieDetails } from '../components'
 import PrivateRoutes from './PrivateRoutes'
+import { ProfileMovieDetails } from '../components/Profile Movie Details/ProfileMovieDetails'
 
 // Me da error FC
 const RouterComponent: FC = () => {
@@ -10,8 +11,11 @@ const RouterComponent: FC = () => {
         <Routes>
             <Route path='/' element={<Homepage />} />
             <Route path='/movie/:movieId' element={<MovieDetails />} />
+            <Route path='/user/movie/:movieId' element={<ProfileMovieDetails />} />
             <Route path='/user' element={
-                <PrivateRoutes><Profile /></PrivateRoutes>
+                <PrivateRoutes>
+                    <Profile />
+                </PrivateRoutes>
             } />
         </Routes>
     )

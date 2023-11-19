@@ -1,5 +1,6 @@
 .btn-container {
-    margin-top: 3rem;
+    display: flex;
+    align-items: flex-end;
 }
 
 .button-style-user {
@@ -13,4 +14,15 @@
     border-radius: 20px;
     margin: 5px auto;
     width: 10rem;
+}
+
+.enlinea {
+    display: flex;
+}
+
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    flex-wrap: wrap;
 }

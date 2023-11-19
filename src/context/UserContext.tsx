@@ -9,11 +9,11 @@ export interface UserType {
 }
 
 export type Movie = {
-    id?: number,
+    id: number,
     name: string,
     score: string,
     poster_image: string,
-    genres: string
+    genres: any
 }
 
 export const UserContext = createContext<{ currentUser: UserType | null, setCurrentLoggedUser: (loggedUser: UserType) => void }>

@@ -43,7 +43,6 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, hasCloseBtn, onClose, chil
         }
     };
 
-
     return (
         <dialog ref={modalRef} className="modal" onKeyDown={handleKeyDown}>
             {hasCloseBtn && (

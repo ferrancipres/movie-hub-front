@@ -63,7 +63,6 @@ export const createUser = async (userObject: {}) => {
 
 export const createNewMovie = async (userId: number, data: any) => {
 
-
     // const accessToken = await getToken();
     const { VITE_API_URL: url } = import.meta.env
     try {
@@ -76,7 +75,43 @@ export const createNewMovie = async (userId: number, data: any) => {
             body: JSON.stringify({
                 name: data.name,
                 score: data.score,
-                genres: data.genres,
+                genres: [{ name: data.genres }],
+                poster_image: data.poster_image
+            })
+        })
+        const dataFetched = await response.json();
+        return dataFetched;
+    } catch (error) {
+        console.error('Error fetching creating new movie:', error);
+        return null
+    }
+}
+
+export const deleteMovie = async (movieId: number) => {
+    const { VITE_API_URL: url } = import.meta.env
+
+    const response = await fetch(`${url}/movie/${movieId}`, {
+        method: "DELETE",
+    });
+    const dataFetched = await response.json();
+    return dataFetched;
+}
+
+export const updateeMovie = async (movieId: number, data: any) => {
+
+    // const accessToken = await getToken();
+    const { VITE_API_URL: url } = import.meta.env
+    try {
+
+        const response = await fetch(`${url}/movie/${movieId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name: data.name,
+                score: data.score,
+                genres: [{ name: data.genres }],
                 poster_image: data.poster_image
             })
         })

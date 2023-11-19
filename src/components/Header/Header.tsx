@@ -13,14 +13,10 @@ import { RiLogoutBoxRLine } from "react-icons/ri";
 
 export const Header = () => {
     const { user, getAccessTokenSilently, loginWithRedirect, isAuthenticated, isLoading, logout } = useAuth0()
-    console.log("getAccessTokenSilently", getAccessTokenSilently());
-    console.log(user?.email)
 
     if (isLoading) {
         <Spinner />
     }
-    console.log(isAuthenticated)
-    console.log(user)
 
     return (
         <header className="header">
