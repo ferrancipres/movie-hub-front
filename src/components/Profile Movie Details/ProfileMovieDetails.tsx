@@ -4,6 +4,7 @@ import { useUserContext } from '../../utils/useUserContext';
 import { deleteMovie } from '../../services/users.service';
 import { AddMovieModal } from '../Add Modal Movie/AddModalMovie';
 import { useState } from 'react';
+import { EditMovieModal } from '../Edit MovieModal/EditMovieModal';
 
 export const ProfileMovieDetails = () => {
     const { movieId } = useParams();
@@ -61,7 +62,7 @@ export const ProfileMovieDetails = () => {
 
                 <div className="btn-container">
                     <button onClick={handleOpenModal} className="button-style-user">Edit Movie</button>
-                    <AddMovieModal isOpen={isModalOpen} onClose={handleCloseModal} />
+                    <EditMovieModal isOpen={isModalOpen} onClose={handleCloseModal} />
                 </div>
 
                 <Link to={'/user'}>

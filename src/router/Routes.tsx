@@ -11,6 +11,7 @@ const RouterComponent: FC = () => {
         <Routes>
             <Route path='/' element={<Homepage />} />
             <Route path='/movie/:movieId' element={<MovieDetails />} />
+            //CUIDADO POSIBLE MODIFICACION name..
             <Route path='/user/movie/:movieId' element={<ProfileMovieDetails />} />
             <Route path='/user' element={
                 <PrivateRoutes>
