@@ -4,6 +4,7 @@ import { Modal } from '../Modal/Modal'
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useUserContext } from '../../utils/useUserContext';
 import { createNewMovie } from '../../services/users.service';
+import { useAuth0 } from '@auth0/auth0-react';
 
 type AddMovieModalProps = {
     isOpen: boolean;
@@ -26,6 +27,7 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ isOpen, onClose })
         setIsModalOpen(false);
     };
     const [isModalOpen, setIsModalOpen] = useState(isOpen);
+    const { getAccessTokenSilently } = useAuth0();
 
     const { register, handleSubmit, reset, formState } = useForm<FormValues>();
     // const { errors, isSubmitSuccessful } = formState;
@@ -34,7 +36,7 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ isOpen, onClose })
 
     const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
         const userId = currentUser?.id
-        if (userId) await createNewMovie(userId, data)
+        if (userId) await createNewMovie(userId, data, getAccessTokenSilently)
 
     }
 

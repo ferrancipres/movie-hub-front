@@ -2,11 +2,12 @@
 import { Link, redirect, useParams } from 'react-router-dom';
 import { useUserContext } from '../../utils/useUserContext';
 import { deleteMovie } from '../../services/users.service';
-import { AddMovieModal } from '../Add Modal Movie/AddModalMovie';
 import { useState } from 'react';
 import { EditMovieModal } from '../Edit MovieModal/EditMovieModal';
+import { useAuth0 } from '@auth0/auth0-react';
 
 export const ProfileMovieDetails = () => {
+    const { getAccessTokenSilently } = useAuth0();
     const { movieId } = useParams();
     const { currentUser } = useUserContext();
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -20,7 +21,7 @@ export const ProfileMovieDetails = () => {
             return redirect("/");
         }
 
-        await deleteMovie(movieDetail.id); // Esperar a que la eliminación se complete
+        await deleteMovie(movieDetail.id, getAccessTokenSilently); // Esperar a que la eliminación se complete
         redirect("/user");
         location.reload();
     };

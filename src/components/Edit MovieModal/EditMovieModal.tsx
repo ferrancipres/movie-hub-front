@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Modal } from '../Modal/Modal'
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useUserContext } from '../../utils/useUserContext';
-import { createNewMovie, updateMovie } from '../../services/users.service';
+import { updateMovie } from '../../services/users.service';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 
 type AddMovieModalProps = {
     isOpen: boolean;
@@ -27,6 +28,7 @@ export const EditMovieModal: React.FC<AddMovieModalProps> = ({ isOpen, onClose }
     };
     const [isModalOpen, setIsModalOpen] = useState(isOpen);
     const { register, handleSubmit, reset, formState } = useForm<FormValues>();
+    const { getAccessTokenSilently } = useAuth0();
 
     const { currentUser } = useUserContext()
     const { movieId: nameParam } = useParams()
@@ -34,7 +36,6 @@ export const EditMovieModal: React.FC<AddMovieModalProps> = ({ isOpen, onClose }
     console.log(currentUser)
 
     const movieDetail = currentUser ? currentUser?.movies.find((movie) => {
-        // AQUI ESTA EL ERROR
         return movie.name == nameParam
     }) : undefined
 
@@ -44,7 +45,7 @@ export const EditMovieModal: React.FC<AddMovieModalProps> = ({ isOpen, onClose }
 
     const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
         const userId = currentUser?.id
-        if (userId) await updateMovie(movieDetail.id, data)
+        if (userId) await updateMovie(movieDetail.id, data, getAccessTokenSilently)
     }
 
     const navigate = useNavigate();

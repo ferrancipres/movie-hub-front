@@ -21,28 +21,6 @@ export const getAllUsers = async () => {
     }
 };
 
-export const getUserByEmail = async (userEmail: string) => {
-    const { VITE_API_URL: url } = import.meta.env;
-    try {
-        // const token = await getToken();
-        //MODIFICIACION SABADO
-        const response = await fetch(`${url}/user/${userEmail}`, {
-            method: "GET",
-            headers: {
-                //MODIFICIACION SABADO
-                // "Authorization": `Bearer ${token}`,
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        });
-
-        const data = await response.json();
-        return [response, data];
-    } catch (error) {
-        console.error('Error fetching user by email:', error);
-        return [null, null]
-    }
-};
-
 export const createUser = async (userObject: {}) => {
     const { VITE_API_URL: url } = import.meta.env;
     try {
@@ -61,16 +39,17 @@ export const createUser = async (userObject: {}) => {
     }
 };
 
-export const createNewMovie = async (userId: number, data: any) => {
+export const createNewMovie = async (userId: number, data: any, getToken: any) => {
 
-    // const accessToken = await getToken();
+    const token = await getToken();
     const { VITE_API_URL: url } = import.meta.env
     try {
 
         const response = await fetch(`${url}/movie/${userId}`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                authorization: `Bearer ${token}`
             },
             body: JSON.stringify({
                 name: data.name,
@@ -87,26 +66,31 @@ export const createNewMovie = async (userId: number, data: any) => {
     }
 }
 
-export const deleteMovie = async (movieId: number) => {
+export const deleteMovie = async (movieId: number, getToken: any) => {
     const { VITE_API_URL: url } = import.meta.env
+    const token = await getToken();
 
     const response = await fetch(`${url}/movie/${movieId}`, {
         method: "DELETE",
+        headers: {
+            authorization: `Bearer ${token}`
+        }
     });
     const dataFetched = await response.json();
     return dataFetched;
 }
 
-export const updateMovie = async (movieId: number, data: any) => {
+export const updateMovie = async (movieId: number, data: any, getToken: any) => {
 
-    // const accessToken = await getToken();
+    const token = await getToken();
     const { VITE_API_URL: url } = import.meta.env
     try {
 
         const response = await fetch(`${url}/movie/${movieId}`, {
             method: "PATCH",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                authorization: `Bearer ${token}`
             },
             body: JSON.stringify({
                 name: data.name,

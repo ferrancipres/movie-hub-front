@@ -18,18 +18,19 @@ type PorfileMovieContentProps = {
 
 export const PorfileMovieContent: FC<movieUserProps> = ({ movieUser }) => {
     return (
-        <li className='list-movies'>
+        <ul className='list-movies'>
             <Link to={`/user/movie/${movieUser.name}`}>
                 <img className="movie-image" src={movieUser.poster_image} alt={movieUser.name} />
                 <p>Title: {movieUser.name}</p>
                 <p>Score:{movieUser.score}</p>
-                <p>{movieUser.genres.map((genre: any) => (
+                <div>{movieUser.genres.map((genre: any) => (
                     <li key={genre.genre.id}>
                         <p>Genre: {genre.genre.name}</p>
                     </li>
-                ))}</p>
+                ))}
+                </div>
             </Link>
 
-        </li>
+        </ul>
     )
 };
