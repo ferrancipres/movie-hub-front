@@ -48,15 +48,11 @@ export const Profile = () => {
 
     return (
         <>
-            <div className="enlinea">
-                <h4 className="titulo">Welcome back, {user?.name}</h4>
-                <div className="btn-container-enlinea">
-                    <button onClick={handleOpenModal} className="button-style-user">Edit profile</button>
-                    <AddMovieModal isOpen={isModalOpen} onClose={handleCloseModal} />
-                </div>
+            <div>
+                <h4 className="profile-header">Welcome back, {user?.name}</h4>
             </div>
             <div className="btn-container">
-                <button onClick={handleOpenModal} className="button-style-user">Add Movie</button>
+                <button onClick={handleOpenModal} className="add-movie-btn">Add Movie</button>
                 <AddMovieModal isOpen={isModalOpen} onClose={handleCloseModal} />
             </div>
             <ul className="movies-grid">

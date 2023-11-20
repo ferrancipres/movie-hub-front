@@ -2,12 +2,10 @@ import { MovieContent } from "../../components"
 
 export const Homepage = () => {
     return (
-        <>
-            <main className="">
-                <section>
-                    <MovieContent />
-                </section>
-            </main>
-        </>
+        <main>
+            <section>
+                <MovieContent />
+            </section>
+        </main>
     )
-}
+};

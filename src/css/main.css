@@ -24,13 +24,14 @@ html,
 body {
     height: 100%;
     margin: 0;
-    background-color: var(--primary);
+    background-color: var(--terciary);
 }
 
 /* ROOT */
 :root {
-    --primary: #564d4d;
+    --primary: #b5b4b4;
     --secondary: #000000;
+    --terciary: #ffffff;
 
     --fs-xxs: 1rem;
     --fs-xs: 1.25rem;

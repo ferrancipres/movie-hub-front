@@ -30,7 +30,6 @@ export const PorfileMovieContent: FC<movieUserProps> = ({ movieUser }) => {
                 ))}
                 </div>
             </Link>
-
         </ul>
     )
 };

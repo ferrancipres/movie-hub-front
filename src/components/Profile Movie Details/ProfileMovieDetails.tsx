@@ -1,7 +1,7 @@
 
 import { Link, redirect, useParams } from 'react-router-dom';
 import { useUserContext } from '../../utils/useUserContext';
-import { deleteMovie } from '../../services/users.service';
+import { deleteMovie } from '../../services/movies.service';
 import { useState } from 'react';
 import { EditMovieModal } from '../Edit MovieModal/EditMovieModal';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -21,7 +21,7 @@ export const ProfileMovieDetails = () => {
             return redirect("/");
         }
 
-        await deleteMovie(movieDetail.id, getAccessTokenSilently); // Esperar a que la eliminación se complete
+        await deleteMovie(movieDetail.id, getAccessTokenSilently);
         redirect("/user");
         location.reload();
     };
@@ -62,12 +62,12 @@ export const ProfileMovieDetails = () => {
                 {/* <button className="button-style-user">Edit movie</button> */}
 
                 <div className="btn-container">
-                    <button onClick={handleOpenModal} className="button-style-user">Edit Movie</button>
+                    <button onClick={handleOpenModal} className="add-movie-btn">Edit Movie</button>
                     <EditMovieModal isOpen={isModalOpen} onClose={handleCloseModal} />
                 </div>
 
                 <Link to={'/user'}>
-                    <button onClick={handleDeleteMovie} className="button-style-user">Delete movie</button>
+                    <button onClick={handleDeleteMovie} className="add-movie-btn">Delete movie</button>
                 </Link>
 
             </div>

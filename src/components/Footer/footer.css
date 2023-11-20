@@ -1,7 +1,7 @@
 .footer-container {
-    background-color: var(--secondary);
+    background-color: var(--terciary);
     padding: 20px;
-    color: var(--primary);
+    color: var(--secondary);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,7 +15,7 @@
 .icon-social {
     font-size: x-large;
     text-decoration: none;
-    color: var(--primary);
+    color: var(--secondary);
     margin: 0 10px;
 }
 
@@ -23,14 +23,14 @@
     display: flex;
     gap: 20px;
     font-size: var(--fs-xxs);
-    color: var(--primary);
+    color: var(--secondary);
     font-weight: var(--fw-medium);
     margin: 9px;
 }
 
 .rights-wrapper {
     font-size: var(--fs-xxs);
-    color: var(--primary);
+    color: var(--secondary);
     font-weight: var(--fw-medium);
     margin: 9px;
 }

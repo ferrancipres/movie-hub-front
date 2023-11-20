@@ -1,22 +1,11 @@
-
-// contenido de películas del usuario
 import { FC, useEffect, useState } from "react"
-// import movie from '../../db/movie.json'
 import { MovieCart } from "../Movie Cart/MovieCart"
 import './movieContent.css'
 import { Spinner } from "../Spinner/Spinner"
-// import { useLocation } from "react-router-dom"
-
-// function useQuery() {
-//     return new URLSearchParams(useLocation().search)
-// }
 
 export const MovieContent: FC = () => {
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-
-    // const query = useQuery();
-    // const search = query.get("search");
 
     useEffect(() => {
         setIsLoading(true);
@@ -51,4 +40,4 @@ export const MovieContent: FC = () => {
             ))}
         </ul>
     )
-}
+};
