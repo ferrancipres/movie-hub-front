@@ -1,10 +1,9 @@
 import { NavLink } from "react-router-dom"
 import logo from '../../assets/img/logo.png'
 import './header.css'
-// import { Search } from "../Search/Search"
 import { FaUser } from 'react-icons/fa'
 import { useAuth0 } from '@auth0/auth0-react'
-import { Spinner } from "../Spinner/Spinner"
+import { Spinner } from ".."
 import { RiHome2Fill } from "react-icons/ri";
 import { IoLockClosedSharp } from "react-icons/io5";
 import { RiLogoutBoxRLine } from "react-icons/ri";

@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react"
 import { MovieCart } from "../Movie Cart/MovieCart"
 import './movieContent.css'
-import { Spinner } from "../Spinner/Spinner"
+import { Spinner } from "..";
 
 export const MovieContent: FC = () => {
     const [movies, setMovies] = useState([]);

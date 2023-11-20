@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import './movieDetails.css';
-import { Spinner } from '../Spinner/Spinner';
+import { Spinner } from '..';
 
 interface Movie {
     poster_path: string;
