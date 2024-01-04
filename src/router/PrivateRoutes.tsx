@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react'
 import { useAuth0 } from '@auth0/auth0-react'
-import { Spinner } from '../components/Spinner/Spinner'
+import { Spinner } from '../components'
 import { Navigate } from 'react-router-dom'
 
 type PrivateRoutesProps = {

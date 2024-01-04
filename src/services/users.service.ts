@@ -12,7 +12,7 @@ export const getAllUsers = async () => {
         const allUsers = await response.json()
         return allUsers
     } catch (error) {
-        console.error('Erro fetching get all users:', error)
+        console.error('Error fetching get all users:', error)
         return null
     }
 };
