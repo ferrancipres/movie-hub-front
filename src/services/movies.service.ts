@@ -1,9 +1,12 @@
+// En esta seccion de servicios se realizan las peticiones a la API
+// En este caso en particular se realizan peticiones acerca CRUD de peliculas
+// En este caso no voy a modificar ningun 'any' por miedo a cagarme encima
+
 export const createNewMovie = async (userId: number, data: any, getToken: any) => {
 
     const token = await getToken();
     const { VITE_API_URL: url } = import.meta.env
     try {
-
         const response = await fetch(`${url}/movie/${userId}`, {
             method: "POST",
             headers: {
@@ -27,7 +30,7 @@ export const createNewMovie = async (userId: number, data: any, getToken: any) =
 
 
 export const updateMovie = async (movieId: number, data: any, getToken: any) => {
-
+   
     const token = await getToken();
     const { VITE_API_URL: url } = import.meta.env
     try {

@@ -1,12 +1,11 @@
 import { Route, Routes } from 'react-router-dom'
-import { FC } from 'react'
 import { Homepage, Profile } from '../pages'
 import { MovieDetails } from '../components'
 import PrivateRoutes from './PrivateRoutes'
 import { ProfileMovieDetails } from '../components/Profile Movie Details/ProfileMovieDetails'
 
-// Me da error FC
-const RouterComponent: FC = () => {
+// Porque no esta el browser router?
+const RouterComponent = () => {
     return (
         <Routes>
             <Route path='/' element={<Homepage />} />

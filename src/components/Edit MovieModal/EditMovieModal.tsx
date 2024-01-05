@@ -26,24 +26,22 @@ export const EditMovieModal: React.FC<AddMovieModalProps> = ({ isOpen, onClose }
         }
         setIsModalOpen(false);
     };
+    
     const [isModalOpen, setIsModalOpen] = useState(isOpen);
     const { register, handleSubmit, reset, formState } = useForm<FormValues>();
     const { getAccessTokenSilently } = useAuth0();
 
     const { currentUser } = useUserContext()
     const { movieId: nameParam } = useParams()
-    console.log('nameParam', nameParam)
-    console.log(currentUser)
 
     const movieDetail = currentUser ? currentUser?.movies.find((movie) => {
         return movie.name == nameParam
     }) : undefined
 
-    console.log(movieDetail)
-
     if (!movieDetail) return null
 
-    const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
+    // Cuidado he cambiado el tipado de data
+    const onSubmit: SubmitHandler<FormValues> = async (data: FormValues) => {
         const userId = currentUser?.id
         if (userId) await updateMovie(movieDetail.id, data, getAccessTokenSilently)
     }

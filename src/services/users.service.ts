@@ -1,3 +1,5 @@
+// En esta seccion de servicios son las llamadas a la API con respecto a usuarios
+// En este caso no tenemos getToken porque no tiene ningún tipo de prohibición.
 
 export const getAllUsers = async () => {
     const { VITE_API_URL: url } = import.meta.env;

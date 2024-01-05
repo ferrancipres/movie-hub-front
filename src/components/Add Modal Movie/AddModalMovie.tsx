@@ -32,7 +32,8 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ isOpen, onClose })
         setIsModalOpen(false);
     };
 
-    const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
+    // CUIDADO he cambiado el tipado de data!!!
+    const onSubmit: SubmitHandler<FormValues> = async (data: FormValues) => {
         const userId = currentUser?.id
         if (userId) await createNewMovie(userId, data, getAccessTokenSilently)
 
@@ -49,7 +50,6 @@ export const AddMovieModal: React.FC<AddMovieModalProps> = ({ isOpen, onClose })
     return (
         <Modal hasCloseBtn={true} isOpen={isOpen} onClose={onClose}>
             <main className="modal-wrapper">
-
                 <article className="form">
                     <form onSubmit={handleSubmit(onSubmit)} className="form">
                         <p className="form-text">Name</p>
